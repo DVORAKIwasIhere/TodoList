@@ -10,9 +10,8 @@ interface ITodo {
 
 // input type date - html
 // _any_, string, number, [], {}, boolean
-// current сделать вывод
-// добавить действие при отправке пустых значений в локальное хранилище
-// опустошать инпуты при нажатии на кнопку
+
+// осталось перенести на localstorage
 function App() {
   const [inputTodo, setInputTodo] = useState('');
   const [inputWhen, setInputWhen] = useState('');
@@ -20,7 +19,9 @@ function App() {
   const handleCreate = () => {
     if(inputTodo.trim() && inputWhen.trim())
     {
-      setTodos(prev => [...prev, {name: inputTodo , date: inputWhen}])
+      setTodos(prev => [...prev, {name: inputTodo , date: inputWhen}]);
+      setInputTodo("") //найти вариант как сделать это красивее
+      setInputWhen("")
     }
     else{
       alert('значение - хуйня')
@@ -28,12 +29,15 @@ function App() {
   }
   return (
     <>
-    <input placeholder="Todo" value={inputTodo} onChange={(e)=> setInputTodo(e.target.value)}/>
-    <input placeholder="when" value={inputWhen} onChange={(e)=> setInputWhen(e.target.value)}/>
+    <input type = "todo" placeholder="Todo" value={inputTodo} onChange={(e)=> setInputTodo(e.target.value)}/>
+    <input type = "when" placeholder="when" value={inputWhen} onChange={(e)=> setInputWhen(e.target.value)}/>
       <button onClick={handleCreate}>insert todo</button>
-    <p>{JSON.stringify(todos)}</p>
+    {/* <p>{JSON.stringify(todos)}</p> */}
     <p>{todos.map((todos)=>(
-      <p>{todos.date + " " + todos.name}</p>
+      <p>
+      <span>{todos.date}</span>
+      <span>{todos.name}</span>
+      </p>
     ))}</p>
     
   
