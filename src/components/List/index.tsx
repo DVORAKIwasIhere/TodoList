@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import {
   Button,
@@ -9,9 +8,6 @@ import {
   Bubble,
   Card,
 } from "./styles";
-
-// input type date - html
-// _any_, string, number, [], {}, boolean
 
 export const TodoList = (props: any) => {
   interface ITodo {
@@ -26,7 +22,7 @@ export const TodoList = (props: any) => {
       const newTodo = { name: inputTodo, date: inputWhen };
       setTodos((prev) => [...prev, newTodo]);
       localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
-      setInputTodo(""); //найти вариант как сделать это красивее
+      setInputTodo("");
       setInputWhen("");
     } else {
       alert("значение - хуйня");
@@ -38,7 +34,6 @@ export const TodoList = (props: any) => {
     setTodos([]);
   };
 
-  // При загрузке страницы берет значение из LS и записывает в стейт
   useEffect(() => {
     const storageTodos = JSON.parse(localStorage.getItem("todos")!) || [];
     setTodos(storageTodos);
@@ -63,29 +58,15 @@ export const TodoList = (props: any) => {
           <Button onClick={handleCreate}>Insert todo</Button>
           <Button onClick={handleClear}>Clear storage</Button>
         </div>
-        {/* <p>{JSON.stringify(todos)}</p> */}
-        <p>
+        <span>
           {todos.map((todos) => (
             <Bubble>
               <OutputTodo>{todos.name}</OutputTodo>
               <OutputDate>{todos.date}</OutputDate>
             </Bubble>
           ))}
-        </p>
-        {/* <p>
-      {JSON.stringify(todos)}
-    </p> */}
+        </span>
       </Card>
     </span>
   );
 };
-=======
-export const TodoList = (props:any) => {
-    return(
-        
-        <p></p>
-        
-        
-    )
-}
->>>>>>> origin/main
