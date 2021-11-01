@@ -9,14 +9,15 @@ import {
   Card,
 } from "./styles";
 
+import { ITodo } from "./interface";
+
+
 export const TodoList = (props: any) => {
-  interface ITodo {
-    name: string;
-    date: string;
-  }
   const [inputTodo, setInputTodo] = useState("");
   const [inputWhen, setInputWhen] = useState("");
+
   const [todos, setTodos] = useState<ITodo[]>([]);
+
   const handleCreate = () => {
     if (inputTodo.trim() && inputWhen.trim()) {
       const newTodo = { name: inputTodo, date: inputWhen };
