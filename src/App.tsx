@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+import { TodoList } from "./components/List";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    background: #145094;
+    font-family: Roboto;
+  }
+`;
+
+function App() {
+  return (
+    <>
+      <GlobalStyle />
+
+        <TodoList />
+
+=======
 import {  useState } from 'react';
 import { TodoList } from './components/List';
 
@@ -43,8 +62,13 @@ function App() {
   
       <TodoList>
       </TodoList>
+>>>>>>> origin/main
     </>
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> origin/main
