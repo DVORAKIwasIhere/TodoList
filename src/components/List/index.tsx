@@ -8,7 +8,9 @@ import {
   Bubble,
   Card,
 } from "./styles";
+
 import { ITodo } from "./interface";
+
 
 export const TodoList = (props: any) => {
   const [inputTodo, setInputTodo] = useState("");
